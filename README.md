@@ -10,4 +10,4 @@ It requires your OpenAI secret but it does not store it anywhere except for your
 
 - - -
 
-The rest of the folders are live to test and demo the API.
+The rest of the folders are live to test and demo the API as described in the [Medium post](https://webreflection.medium.com/taming-the-web-speech-api-ef64f5a245e1)
