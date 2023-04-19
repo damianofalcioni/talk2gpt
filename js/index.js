@@ -12,7 +12,7 @@ const {
 } = globalThis;
 
 let chosenVoice;
-let bearer = session.get('bearer') || local.get('bearer');
+let bearer = (new URLSearchParams(window.location.search)).get('bearer') || session.get('bearer') || local.get('bearer');
 let voice = local.get('voice');
 let language = local.get('language');
 let volume = local.get('volume');
