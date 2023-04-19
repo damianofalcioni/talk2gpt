@@ -6,7 +6,7 @@ A 100% client-side PoC of OpenAI Chat GPT API via Web Speech API.
 
 It requires your OpenAI secret but it does not store it anywhere except for your browser session storage.
 
-[Live Here](https://webreflection.github.io/talk2gpt/)
+[Live Here](https://damianofalcioni.github.io/talk2gpt/)
 
 - - -
 
