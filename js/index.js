@@ -112,7 +112,7 @@ async function prepareListening(gpt) {
       listen(chosenVoice ? {lang: language} : void 0).then(complete, fallback);
       function complete(transcript) {
         if (transcript) {
-          it.show(`🧑 “${transcript}”`);
+          it.show(`🧑 “${transcript}”`, true);
           gpt.complete(transcript).then(
             result => {
               button.disabled = false;
@@ -150,7 +150,7 @@ async function prepareListening(gpt) {
         else {
           button.disabled = false;
           button.focus();
-          it.show('🤷');
+          it.show('🤷', true);
         }
       }
 
