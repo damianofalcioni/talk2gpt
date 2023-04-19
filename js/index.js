@@ -59,9 +59,8 @@ else {
           case 'session': session.set('bearer', bearer); break;
           case 'local': local.set('bearer', bearer); break;
         }
-        $('#content')
-          .on('transitionend', () => prepareListening(gpt), {once: true})
-          .style.opacity = 0;
+        $('#content').innerHTML = '';
+        prepareListening(gpt);
       }
     });
   });
@@ -105,7 +104,6 @@ async function prepareListening(gpt) {
   chosenVoice = voices.find(byNameAndLang);
   settings(gpt, voices);
   it.show('🎙️ click the mic to ask anything');
-  $('#content').replaceChildren().style.opacity = 1;
   $('#mic')
     .on('click', ({currentTarget: button}) => {
       button.disabled = true;
