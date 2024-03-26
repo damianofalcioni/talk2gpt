@@ -96,7 +96,7 @@ const byNameAndLang = ({name, lang}) =>
 async function prepareListening(gpt) {
   const voices = await whenVoices();
   const it = new IncrementalText($('#content').valueOf());
-  const error = ({error, message}) => {
+  const showError = ({error, message}) => {
     $('#mic').disabled = false;
     $('#mic').focus();
     it.show(`⚠️ ${error || message || 'something is wrong'}`);
@@ -118,7 +118,7 @@ async function prepareListening(gpt) {
               button.disabled = false;
               button.focus();
               if (result.error)
-                error(result.error);
+                showError(result.error);
               else {
                 showUsage(result);
                 for (const choice of result.choices) {
@@ -144,7 +144,7 @@ async function prepareListening(gpt) {
                 }
               }
             },
-            error
+            showError
           );
         }
         else {
@@ -156,7 +156,7 @@ async function prepareListening(gpt) {
 
       function fallback({error, message}) {
         if ('service-not-allowed' !== (error || message) || !$$('#mic').length)
-          error({error, message});
+          showError({error, message});
         else {
           const div = document.createElement('div');
           const textarea = div.appendChild(document.createElement('textarea'));
